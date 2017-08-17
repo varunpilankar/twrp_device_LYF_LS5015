@@ -55,8 +55,10 @@ BOARD_KERNEL_PREBUILT_DT := true
 #BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(LOCAL_PATH)/LS-5015-kernel/dt.img
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/LS-5015-kernel/kernel
 
-# Encryption
+# Encryption support
+TW_INCLUDE_CRYPTO := true
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
