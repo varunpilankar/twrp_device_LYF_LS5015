@@ -30,9 +30,7 @@ PRODUCT_PACKAGES += \
 
 # Kernel
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/LS-5015-kernel/kernel:kernel 
-#   $(LOCAL_PATH)/recovery/root/fstab.qcom:fstab.qcom \
-#  $(LOCAL_PATH)/recovery/root/fstab.goldfish:fstab.goldfish
+    $(LOCAL_PATH)/LS-5015-kernel/kernel:kernel
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := LS5015
