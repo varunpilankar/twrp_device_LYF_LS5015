@@ -16,6 +16,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+LOCAL_PATH := device/LYF/LS5015
+
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -24,13 +26,10 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-# Encryption
-PRODUCT_PACKAGES += \
-    libcryptfs_hw
-
 # Kernel
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/LS-5015-kernel/kernel:kernel
+    $(LOCAL_PATH)/LS5015-kernel/kernel:kernel \
+    $(LOCAL_PATH)/LS5015-kernel/dt.img:dt.img
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := LS5015

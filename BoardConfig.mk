@@ -52,12 +52,8 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_PREBUILT_DT := true
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(LOCAL_PATH)/LS-5015-kernel/dt.img
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/LS-5015-kernel/kernel
-
-# Encryption
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := device/qcom/common/cryptfs_hw
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(LOCAL_PATH)/LS5015-kernel/dt.img
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/LS5015-kernel/kernel
 
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
@@ -79,16 +75,16 @@ BOARD_SUPPRESS_EMMC_WIPE := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_VARIANT := twrp
-#TARGET_HW_DISK_ENCRYPTION := false
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/twrp.fstab
+TARGET_HW_DISK_ENCRYPTION := false
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_RECOVERY_QCOM_RTC_FIX := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun%d/file"
 TWHAVE_SELINUX := true
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_EXCLUDE_SUPERSU := true
-TW_INCLUDE_CRYPTO := false
-TW_INPUT_BLACKLIST := "hbtp_vm"
+TW_INCLUDE_CRYPTO := true
 TW_MTP_DEVICE := "/dev/mtp_usb"
+TW_NO_USB_STORAGE := true
 TW_OEM_BUILD := false
 TW_THEME := portrait_hdpi
