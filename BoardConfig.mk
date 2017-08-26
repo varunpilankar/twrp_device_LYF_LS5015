@@ -17,7 +17,7 @@
 #
 
 LOCAL_PATH := device/LYF/LS5015
-CRYPT_PATH := device/qcom/common/
+#CRYPT_PATH := device/qcom/common/
 
 TARGET_BOARD_VENDOR := LYF
 
@@ -60,7 +60,7 @@ TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/LS5015-kernel/kernel
 
 #Encryption
 TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := $(CRYPT_PATH)/cryptfs_hw
+TARGET_CRYPTFS_HW_PATH := $(LOCAL_PATH)/cryptfs_hw
 
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
