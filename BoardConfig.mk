@@ -48,7 +48,6 @@ TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
 # Kernel
-
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -60,7 +59,7 @@ TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/LS5015-kernel/kernel
 
 #Encryption
 TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := $(LOCAL_PATH)/cryptfs_hw
+#TARGET_CRYPTFS_HW_PATH := $(LOCAL_PATH)/cryptfs_hw
 
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
@@ -82,7 +81,7 @@ BOARD_SUPPRESS_EMMC_WIPE := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_VARIANT := twrp
-#TARGET_HW_DISK_ENCRYPTION := false
+TARGET_HW_DISK_ENCRYPTION := false
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -98,3 +97,6 @@ TW_THEME := portrait_hdpi
 
 #Mouse c ursor
 TW_INPUT_BLACKLIST := "hbtp_vm"
+
+BOARD_DISABLE_BOOT_VERIFY := true
+BOARD_DISABLE_BOOT_FORCEENCRYPTION := true

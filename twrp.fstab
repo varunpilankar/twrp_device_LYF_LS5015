@@ -7,19 +7,21 @@
 /rpm             emmc    /dev/block/bootdevice/by-name/rpm            flags=backup=1;subpartitionof=/firmware
 /aboot           emmc    /dev/block/bootdevice/by-name/aboot          flags=backup=1;subpartitionof=/firmware
 /splash          emmc    /dev/block/bootdevice/by-name/splash         flags=backup=1;subpartitionof=/firmware
-/firmware        vfat    /dev/block/bootdevice/by-name/modem          flags=backup=1;display=Firmware;fsflags="rw,shortname=lower,uid=1000,gid=1026,dmask=227,fmask=337,context=u:object_r:firmware_file:s0"
+/firmware        vfat    /dev/block/bootdevice/by-name/modem          flags=backup=1;display=Firmware;mounttodecrypt
 
 # efs
 /modem_st1       emmc    /dev/block/bootdevice/by-name/modemst1       flags=backup=1;display=EFS
 /modem_st2       emmc    /dev/block/bootdevice/by-name/modemst2       flags=backup=1;subpartitionof=/modem_st1
 
-/system          ext4    /dev/block/bootdevice/by-name/system         flags=fsflags="barrier=1"
-/data            ext4    /dev/block/bootdevice/by-name/userdata       flags=encryptable=footer;length=-16384;fsflags="noatime,nosuid,nodev,barrier=1,noauto_da_alloc"
-/cache           ext4    /dev/block/bootdevice/by-name/cache          flags=fsflags="noatime,nosuid,nodev,barrier=1,noauto_da_alloc"
-/persist         ext4    /dev/block/bootdevice/by-name/persist        flags=backup=1;display=Persist;fsflags="noatime,nosuid,nodev,barrier=1,noauto_da_alloc"
-/boot            emmc    /dev/block/bootdevice/by-name/boot      flags=backup=1;display=Boot
-/recovery        emmc    /dev/block/bootdevice/by-name/recovery  flags=backup=1;display=Recovery
-/misc            emmc    /dev/block/bootdevice/by-name/misc
+/system         ext4      /dev/block/bootdevice/by-name/system               flags=display="System"
+/data           ext4      /dev/block/bootdevice/by-name/userdata             flags=length=-16384
+/cache          ext4      /dev/block/bootdevice/by-name/cache                flags=display="Cache"
+/cust           ext4      /dev/block/bootdevice/by-name/cust                 flags=display="Cust";backup=1
+/recovery       emmc      /dev/block/bootdevice/by-name/recovery             flags=display="Recovery";backup=1
+/boot           emmc      /dev/block/bootdevice/by-name/boot                 flags=display="Boot"
+/misc           emmc      /dev/block/bootdevice/by-name/misc                 flags=display="Misc"
+#/firmware       vfat      /dev/block/bootdevice/by-name/modem                flags=display="Firmware";mounttodecrypt
+/persist        ext4      /dev/block/bootdevice/by-name/persist              flags=display="Persist";backup=1
 
-/external_sd     auto    /dev/block/mmcblk1p1                         flags=display="Micro-SDcard";storage;wipeingui;removable
-/usb_otg         auto    /dev/block/sda1         /dev/block/sda       flags=display="USB-OTG";storage;wipeingui;removable
+/sdcard1        auto      /dev/block/mmcblk1p1                               flags=display="MicroSD";storage;wipeingui;removable
+/usb-otg        auto      /dev/block/sda1                                    flags=display="USB Storage";storage;wipeingui;removable
